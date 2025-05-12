@@ -6,17 +6,16 @@
 }
 
 body {
-    color: #333;
+    background: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: url('background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
 .app-container {
