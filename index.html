@@ -1,0 +1,116 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US States Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Home View -->
+        <div id="home-view" class="view">
+            <h1>US States Challenge</h1>
+            <div class="home-content">
+                <p>Welcome to the US States Challenge! Test your knowledge of the 50 states.</p>
+                <h2>How to Play:</h2>
+                <ul>
+                    <li><strong>Select a Mode:</strong> Choose between Practice Mode and Challenge Mode.</li>
+                    <li><strong>Practice Mode:</strong> Tap a state abbreviation from the list, then tap its location on the map. The map will highlight matching locations. Hover over state abbreviations for full names, and hover over states on the map for their names. No time limit.</li>
+                    <li><strong>Challenge Mode:</strong> Tap a state abbreviation from the list, then tap its location on the map. No map hints are shown. Earn stars for matching states (1 star for 10 states, up to 5 stars for 50 states). You have 2 minutes to match all states.</li>
+                    <li><strong>Matching:</strong> When you tap a state abbreviation, it will be highlighted. Then, tap the corresponding state on the map. If correct, the state on the map turns green, and the abbreviation is removed. If incorrect, the state on the map briefly turns red, and your selection is cleared.</li>
+                    <li><strong>Reset:</strong> Use the Reset button to start the current mode over.</li>
+                </ul>
+                <div class="home-buttons">
+                    <button id="start-practice-btn">Start Practice Mode</button>
+                    <button id="start-challenge-btn">Start Challenge Mode</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game View -->
+        <div id="game-view" class="view hidden">
+            <div class="container">
+                <h1>US States Challenge</h1>
+                
+                <div class="mode-selector">
+                    <button id="practice-mode" class="active">Practice Mode</button>
+                    <button id="challenge-mode">Challenge Mode</button>
+                </div>
+                
+                <div class="game-stats">
+                    <div class="score">
+                        <span>Correct: </span>
+                        <span id="correct-count">0</span>
+                        <span>/</span>
+                        <span id="total-states">50</span>
+                    </div>
+                    <div id="timer-container" class="hidden">
+                        <span>Time: </span>
+                        <span id="time-display">02:00</span>
+                    </div>
+                    <div class="stars-container">
+                        <div id="stars"></div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div id="usa-map"></div>
+                    <div id="loading-overlay" class="loading-overlay hidden">
+                        <div class="spinner"></div>
+                        <p>Loading map...</p>
+                    </div>
+                </div>
+                
+                <div class="states-list" id="states-list"></div>
+                
+                <div class="controls">
+                    <button id="reset-btn">Reset Game</button>
+                    <button id="home-btn">Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tooltip"></div>
+
+    <!-- Modals -->
+    <div id="challenge-start-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Challenge Mode</h2>
+            <p>Ready for the challenge? You have <strong>2 minutes</strong> to match all 50 states!</p>
+            <p>Earn stars based on how many states you match correctly.</p>
+            <button id="start-challenge-game-btn">Start Game</button>
+            <button class="close-modal-btn">Cancel</button>
+        </div>
+    </div>
+
+    <div id="challenge-results-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Challenge Results</h2>
+            <div id="results-message"></div>
+            <p>States Correct: <span id="final-correct-count">0</span> / 50</p>
+            <p id="time-taken-display" class="hidden"></p>
+            <p>Stars Earned: <span id="final-stars">0</span> ★</p>
+            <button id="play-again-btn">Play Again</button>
+            <button id="go-home-btn">Go Home</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="app-footer">
+        <p class="footer-link"><a href="https://www.aaronshi.cc" target="_blank" rel="noopener noreferrer">
+            Go to AaronShi.cc</a></p>
+        <span class="footer-separator">|</span>
+        <p class="footer-link"><a href="https://app.aaronshi.cc" target="_blank" rel="noopener noreferrer">
+            Back to AaronShi.cc App
+        </a></p>
+    </div>
+
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+    <script src="states.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
